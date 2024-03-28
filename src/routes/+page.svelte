@@ -1,59 +1,96 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import img from "$lib/top/news/imgs/document_syorui_pen.png";
+	import Card from "../lib/top/news/card.svelte";
+	import Carousel from "./../lib/top/carousel/carousel.svelte";
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Unbiased Programming</title>
+	<meta
+		name="description"
+		content="上智大学のプログラミングサークルUnbiased Programmingの公式サイトです。"
+	/>
 </svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+<Carousel />
 
-		to your new<br />SvelteKit app
-	</h1>
+<div class="short-about">
+	<h2 class=temp>キャッチフレーズを入れる</h2>
+	<p class=temp>
+		Unbiased Programmingは上智大学のプログラミングサークルです。
+		説明を入れる
+	</p>
+</div>
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
+<div class="section-title">
+	<h2>News</h2>
+</div>
+<div class="cards">
+	<Card
+		title="入会希望者の方へ"
+		description="入会申請フォーム及び質問窓口を設置しました。"
+	>
+		<img src={img} alt="document_syorui_pen" loading="lazy" />
+		<div class="src">いらすとや</div>
+	</Card>
 
-	<Counter />
-</section>
+	<Card
+		title="外資系就活ドットコム様と提携しました。"
+		description="外資系就活ドットコム様と提携し様々なイベントを開催することになりました。"
+	></Card>
+</div>
+<div class="section-title">
+	<h2>Activity</h2>
+</div>
+<div class="cards">
+	<Card
+		title="サイトを公開しました。"
+		description="SOMAからUnbiased Programmingへの改名に伴い新たなWEBサイトを公開しました。"
+	></Card>
+</div>
 
 <style>
-	section {
+	.short-about {
+		text-align: center;
+		padding: 20px;
+	}
+
+	.short-about h2 {
+		font-size: x-large;
+	}
+
+	.cards {
 		display: flex;
-		flex-direction: column;
+		flex-wrap: wrap;
 		justify-content: center;
-		align-items: center;
-		flex: 0.6;
+		gap: 20px;
+		padding: 20px;
 	}
 
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
+	.cards img {
 		width: 100%;
 		height: 100%;
-		top: 0;
-		display: block;
+		object-fit: contain;
+	}
+
+	.src {
+		position: absolute;
+		bottom: 0;
+		right: 10px;
+		font-size: small;
+		font-size: 0.6rem;
+	}
+
+	.section-title > h2{
+		text-align: center;
+		margin-top: 40px;
+		font-size: x-large;
+	}
+
+	.temp::after {
+		content: "仮の文章です。";
+		font-size: 0.6rem;
+		color: red;
+		position: absolute;
 	}
 </style>

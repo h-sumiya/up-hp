@@ -1,18 +1,56 @@
 <script>
-	import Header from './Header.svelte';
-	import './styles.css';
+	/*
+	全ページのレイアウトを定義するファイルです。
+	このファイルを変更する場合は影響範囲をよく確認してください。
+	*/
+	import { browser } from "$app/environment";
+	import Drawer from "./../lib/drawer.svelte";
+	import { drawerOpen } from "./../lib/store.js";
+	import Header from "$lib/header/Header.svelte";
+	import Footer from "../lib/footer/Footer.svelte";
+	import "./styles.css";
+	import { tweened } from "svelte/motion";
+	import { cubicOut } from "svelte/easing";
+
+	const drawerSlide = tweened(0, {
+		duration: 300,
+		easing: cubicOut,
+	});
+
+	$: $drawerOpen ? drawerSlide.set(300) : drawerSlide.set(0);
+
+	$: if (browser) {
+		$drawerOpen
+			? (document.body.style.overflow = "hidden")
+			: (document.body.style.overflow = "auto");
+	}
 </script>
 
-<div class="app">
+<div style:--drawer-slide={$drawerSlide}>
 	<Header />
 
-	<main>
-		<slot />
-	</main>
+	{#if $drawerSlide > 0}
+		<div
+			class="cover"
+			tabindex="0"
+			role="button"
+			on:click={() => drawerOpen.update((v) => !v)}
+		></div>
+	{/if}
 
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
+	<div class="app">
+		<main>
+			<slot />
+		</main>
+
+		<Footer />
+	</div>
+
+	{#if $drawerSlide > 0}
+		<div class="drawer">
+			<Drawer />
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -20,34 +58,30 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+		transform: translateX(calc(var(--drawer-slide) * -1px));
 	}
 
 	main {
 		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
 	}
 
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
+	.cover {
+		position: fixed;
+		top: 0;
+		right: calc(var(--drawer-slide) * 1px);
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, calc(0.5 * var(--drawer-slide) / 300));
+		z-index: 99;
 	}
 
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
+	.drawer {
+		position: fixed;
+		top: 0;
+		right: calc(-300px + var(--drawer-slide) * 1px);
+		width: 300px;
+		height: 100vh;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		z-index: 100;
 	}
 </style>
