@@ -3,7 +3,7 @@
     import { cubicOut } from "svelte/easing";
     import { tweened } from "svelte/motion";
     import classImg from "./imgs/class.jpg";
-    import pSomaImg from "./imgs/p_soma.png";
+    import pSomaImg from "./imgs/p_soma.jpg";
     import aiImg from "./imgs/ai.webp";
 
     const length = 3;
@@ -89,7 +89,6 @@
         angle = snapAngle(index, fixed);
         tweenedAngle.set(angle, { duration: duration });
         priorityAngle = null;
-        console.log(fixed, angle);
         startTimer();
     };
 
@@ -253,11 +252,11 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        display: none;
+        z-index: 1;
     }
 
     .card > div.show {
-        display: block;
+        z-index: 2;
     }
 
     .card > div > img {
@@ -276,6 +275,7 @@
     }
 
     .card {
+        will-change: transform;
         transform: rotateY(calc(var(--angle) * 1deg));
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         overflow: hidden;

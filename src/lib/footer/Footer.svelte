@@ -1,3 +1,7 @@
+<script>
+    import { instagramUrl, twitterUrl } from "../store";
+</script>
+
 <footer>
     <div class="links">
         <div class="internal">
@@ -5,7 +9,6 @@
             <a href="/about">About</a>
             <a href="/news">ニュース</a>
             <a href="/activity">活動内容</a>
-            <a href="/achievement">実績</a>
         </div>
         <div class="external">
             <div class="title">外部リンク</div>
@@ -19,6 +22,11 @@
                 上智大学
             </a>
         </div>
+        <div class="sns">
+            <div class="title">SNS</div>
+            <a href={instagramUrl} target="_blank">Instagram</a>
+            <a href={twitterUrl} target="_blank">Twitter</a>
+        </div>
     </div>
     <div>© 2024 Unbiased Programming</div>
 </footer>
@@ -28,9 +36,11 @@
         width: 100%;
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: top;
-        gap: 100px;
+        gap: 20px;
+        margin-bottom: 20px;
     }
 
     .title {

@@ -7,6 +7,7 @@
         faInstagram,
         faXTwitter,
     } from "@fortawesome/free-brands-svg-icons";
+    import { instagramUrl, twitterUrl } from "../store";
 </script>
 
 <div class="inner">
@@ -18,14 +19,14 @@
 
     <Link href="/about" title="About" ditail="サークル情報" />
     <Link href="/activity" title="Activity" ditail="活動内容" />
-    <Link href="/achievement" title="Achievement" ditail="実績" />
+    <Link href="/news" title="News" ditail="ニュース" />
     <a
-        href="https://www.instagram.com/unbiased_programming?utm_source=qr"
+        href={instagramUrl}
         target="_blank"
     >
         <Fa icon={faInstagram} size="lg" />
     </a>
-    <a href="https://twitter.com/teamsoma_sophia" target="_blank">
+    <a href={twitterUrl} target="_blank">
         <Fa icon={faXTwitter} size="lg" />
     </a>
 </div>

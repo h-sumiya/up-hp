@@ -4,7 +4,7 @@
         faInstagram,
         faXTwitter,
     } from "@fortawesome/free-brands-svg-icons";
-    import { drawerOpen } from "./store";
+    import { drawerOpen, instagramUrl, twitterUrl } from "./store";
 
     const close = () => {
         drawerOpen.set(false);
@@ -23,10 +23,6 @@
             text: "活動内容",
             href: "/activity",
         },
-        {
-            text: "実績",
-            href: "/achievement",
-        },
     ];
 </script>
 
@@ -40,13 +36,10 @@
         </div>
     {/each}
     <div class="icon-link">
-        <a
-            href="https://www.instagram.com/unbiased_programming?utm_source=qr"
-            target="_blank"
-        >
+        <a href={instagramUrl} target="_blank">
             <Fa icon={faInstagram} size="lg" />
         </a>
-        <a href="https://twitter.com/teamsoma_sophia" target="_blank">
+        <a href={twitterUrl} target="_blank">
             <Fa icon={faXTwitter} size="lg" />
         </a>
     </div>

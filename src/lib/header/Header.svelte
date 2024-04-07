@@ -56,6 +56,6 @@
 		position: fixed;
 		width: 100%;
 		z-index: 1000;
-		right: calc(var(--drawer-slide) * 1px);
+		right: var(--drawer-slide);
 	}
 </style>

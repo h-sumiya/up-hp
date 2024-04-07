@@ -17,7 +17,7 @@
 		easing: cubicOut,
 	});
 
-	$: $drawerOpen ? drawerSlide.set(300) : drawerSlide.set(0);
+	$: $drawerOpen ? drawerSlide.set(1) : drawerSlide.set(0);
 
 	$: if (browser) {
 		$drawerOpen
@@ -26,7 +26,7 @@
 	}
 </script>
 
-<div style:--drawer-slide={$drawerSlide}>
+<div style:--drawer-progress={$drawerSlide} class="root">
 	<Header />
 
 	{#if $drawerSlide > 0}
@@ -54,11 +54,17 @@
 </div>
 
 <style>
+	.root {
+		--drawer-progress: 0;
+		--drawer-width: calc(min(calc(100vw - 100px),300px));
+		--drawer-slide: calc(var(--drawer-width) * var(--drawer-progress));
+	}
+
 	.app {
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
-		transform: translateX(calc(var(--drawer-slide) * -1px));
+		transform: translateX(calc(var(--drawer-slide) * -1));
 	}
 
 	main {
@@ -68,18 +74,18 @@
 	.cover {
 		position: fixed;
 		top: 0;
-		right: calc(var(--drawer-slide) * 1px);
+		right: var(--drawer-slide);
 		width: 100vw;
 		height: 100vh;
-		background-color: rgba(0, 0, 0, calc(0.5 * var(--drawer-slide) / 300));
+		background-color: rgba(0, 0, 0, calc(0.5 * var(--drawer-progress)));
 		z-index: 99;
 	}
 
 	.drawer {
 		position: fixed;
 		top: 0;
-		right: calc(-300px + var(--drawer-slide) * 1px);
-		width: 300px;
+		right: calc(var(--drawer-slide) - var(--drawer-width));
+		width: var(--drawer-width);
 		height: 100vh;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		z-index: 100;
