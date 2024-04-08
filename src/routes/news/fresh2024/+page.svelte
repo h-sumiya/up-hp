@@ -7,28 +7,29 @@
     <title>2024年フレマンのお知らせ</title>
     <meta
         name="description"
-        content="4/9,10に開催されるフレッシュマンウィークに参加します。"
+        content="外資系就活ドットコム様に協賛していただき、様々なイベントを開催します。"
     />
 </svelte:head>
 
 <Margin />
 
 <div class="body">
-    <h1>2024年フレマンのお知らせ</h1>
-    <p>4/9,10に開催されるフレッシュマンウィークに参加します。</p>
+    <h1>外資系就活ドットコム様に協賛していただきました</h1>
     <p>
-        当日は<span>東門</span>の近くにてブースを設置します。
+        この度 Unbiased Programming は、
+        外資系・日系超一流企業を目指す学生のための就活活動サイト
     </p>
     <p>
-        サークルの活動内容などを紹介する予定ですので、ぜひお立ち寄りください。
+        「<a href="https://gaishishukatsu.com/"　target="blank">外資就活ドットコム</a>」
+        を運営する、
+        <a href="https://howtelevision.co.jp/"　target="blank">株式会社ハウテレビジョン</a>様
+        にご協賛いただくこととなりました。
     </p>
     <p>
-        雨天時は9号館地下のカフェ内、<span>右奥</span>にブースが移動します。
+        このご協賛を受け、Unbiased Programming はさらに活動の幅を広げていきます。
     </p>
     <p>
-        最新情報は
-        <a href={instagramUrl}>インスタグラム</a>
-        でお知らせします。
+        今後、外資就活ドットコム様と<span>イベントの共催</span>も行いますので、続報をお待ちください。
     </p>
 </div>
 
