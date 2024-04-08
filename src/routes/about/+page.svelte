@@ -49,7 +49,7 @@
 
 	<section>
 		<img src={aboutus} alt="picture of Unbiased Programming's members">
-		<div class = text>
+		<div class = "text max50">
 			<h1>活動理念</h1>
 			<h3><strong>~ 偏見のない学びを、すべての人に ~</strong></h3>
 			<p>
@@ -103,9 +103,8 @@
 
 	.justify {
 		position: relative;
-		height: 1000px;
+		height: 720px;
 		width: 5px;
-		background: linear-gradient(red, blue	);
 	}
 
     .contena {
@@ -147,6 +146,10 @@
 
 	.text {
 		padding-left: 20px;
+	}
+
+	.max50 {
+		max-width: 50vw;
 	}
 
 	.title_top {
