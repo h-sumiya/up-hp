@@ -1,5 +1,6 @@
 <script>
 	import siteImg from "$lib/top/news/imgs/site.jpg";
+	import sinkanImg from "$lib/top/news/imgs/sinkan_party.png";
 	import freshImg from "$lib/top/news/imgs/fresh.jpg";
 	import gssktLogo from "$lib/top/news/imgs/gsskt_logo.png";
 	import Big from "../lib/top/news/big.svelte";
@@ -19,10 +20,16 @@
 
 <div class="short-about">
 	<h2>全ての人に、偏見のない学びを</h2>
-	<p class="temp">
-		Unbiased Programmingは上智大学のプログラミングサークルです。
-		説明を入れる
+	<br>
+	<p>
+		Unbiased Programming は上智大学のインカレプログラミングサークルです。<br>
+		性別・所属・文理選択など、その人の属性にとらわれずに、<br>
 	</p>
+	<h4>" すべての人がプログラミングに挑戦できる機会 "</h4>
+	<p>
+		を提供することを目標に、プログラミングの学習やイベントの開催など、<br>
+		日々様々な活動を行っています。
+	</p>	
 </div>
 <Big />
 <div class="section-title">
@@ -30,11 +37,11 @@
 </div>
 <div class="cards">
 	<Card
-		title="2024年新歓のお知らせ"
-		description="4/13に新歓イベントを開催します。"
+		title="2024年新歓パーティーのお知らせ"
+		description="4/13に新歓パーティーを開催します。"
 		href="/news/welcome2024"
 	>
-		<img src={freshImg} class="cov" alt="fresh" loading="lazy" />
+		<img src={sinkanImg} class="cov" alt="fresh" loading="lazy" />
 	</Card>
 	<Card
 		title="2024年フレマンのお知らせ"
@@ -80,7 +87,13 @@
 	}
 
 	.short-about h2 {
+		text-align: center;
 		font-size: xx-large;
+	}
+
+	.short-about p {
+		margin: auto;
+		max-width: 563px;
 	}
 
 	.cards {
@@ -116,13 +129,6 @@
 		text-align: center;
 		margin-top: 40px;
 		font-size: x-large;
-	}
-
-	.temp::after {
-		content: "仮の文章です。";
-		font-size: 0.6rem;
-		color: red;
-		position: absolute;
 	}
 
 	.bottom {
