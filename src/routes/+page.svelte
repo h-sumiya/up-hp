@@ -1,8 +1,8 @@
 <script>
-	import siteImg from "$lib/top/news/imgs/site.jpg";
-	import sinkanImg from "$lib/top/news/imgs/sinkan_party.png";
-	import freshImg from "$lib/top/news/imgs/fresh.jpg";
-	import gssktLogo from "$lib/top/news/imgs/gsskt_logo.png";
+	import siteImg from "$lib/activity/thumbnail/site.jpg";
+	import sinkanImg from "$lib/news/thumbnail/sinkan_party.png";
+	import freshImg from "$lib/news/thumbnail/fresh.jpg";
+	import gssktLogo from "$lib/news/thumbnail/gsskt_logo.png";
 	import Big from "../lib/top/news/big.svelte";
 	import Card from "../lib/top/news/card.svelte";
 	import Carousel from "./../lib/top/carousel/carousel.svelte";
@@ -20,16 +20,17 @@
 
 <div class="short-about">
 	<h2>全ての人に、偏見のない学びを</h2>
-	<br>
+	<br />
 	<p>
-		Unbiased Programming は上智大学のインカレプログラミングサークルです。<br>
-		性別・所属・文理選択など、その人の属性にとらわれずに、<br>
+		Unbiased Programming は上智大学のインカレプログラミングサークルです。<br
+		/>
+		性別・所属・文理選択など、その人の属性にとらわれずに、<br />
 	</p>
 	<h4>" すべての人がプログラミングに挑戦できる機会 "</h4>
 	<p>
-		を提供することを目標に、プログラミングの学習やイベントの開催など、<br>
+		を提供することを目標に、プログラミングの学習やイベントの開催など、<br />
 		日々様々な活動を行っています。
-	</p>	
+	</p>
 </div>
 <Big />
 <div class="section-title">
