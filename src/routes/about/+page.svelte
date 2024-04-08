@@ -48,7 +48,7 @@
 	</div>
 
 	<section>
-		<img src={aboutus} alt="picture of Unbiased Programming's members">
+		<img src={aboutus} alt="Unbiased Programming's members">
 		<div class = "text max50">
 			<h1>活動理念</h1>
 			<h3><strong>~ 偏見のない学びを、すべての人に ~</strong></h3>
